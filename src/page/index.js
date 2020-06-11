@@ -6,6 +6,8 @@ import UploadPhoto from './UploadPhoto';
 import MainApp from './MainApp';
 import Messages from './Messages';
 import Hospitals from './Hospitals';
+import Profile from './Profile';
+import EditProfile from './EditProfile';
 
 export {
   SplashScreen,
@@ -16,4 +18,6 @@ export {
   MainApp,
   Messages,
   Hospitals,
+  Profile,
+  EditProfile,
 };

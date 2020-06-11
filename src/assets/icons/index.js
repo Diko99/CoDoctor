@@ -9,6 +9,13 @@ import IconMessages from './ic-message.svg';
 import IconMessagesActive from './ic-message-active.svg';
 import IconHospitals from './ic-hospital.svg';
 import IconHospitalsActive from './ic-hospital-active.svg';
+import IconBackDark from './arrow-back-dark.svg';
+import IconBackLight from './arrow_back-light.svg';
+import IconNext from './arrow_next.png';
+import IconEditProfile from './ic-edit-profile.svg';
+import IconHelp from './ic-help.svg';
+import IconRate from './ic-rate.svg';
+import IconLanguages from './ic-languages.svg';
 
 export {
   IconAdd,
@@ -22,4 +29,11 @@ export {
   IconMessagesActive,
   IconHospitals,
   IconHospitalsActive,
+  IconBackDark,
+  IconBackLight,
+  IconNext,
+  IconEditProfile,
+  IconHelp,
+  IconRate,
+  IconLanguages,
 };

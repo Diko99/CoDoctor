@@ -3,12 +3,15 @@ import {StyleSheet, View, ImageBackground} from 'react-native';
 import {ILBackgroundLight} from '../../assets';
 import {AddPhoto, Button, Link} from '../../components';
 
-const UploadPhoto = () => {
+const UploadPhoto = ({navigation}) => {
   return (
     <ImageBackground source={ILBackgroundLight} style={styles.container}>
-      <AddPhoto />
+      <AddPhoto title="Andiko Mahendra" desc="Frontend Developer" />
       <View style={styles.content}>
-        <Button title="Upload and Continue" />
+        <Button
+          title="Upload and Continue"
+          onPress={() => navigation.replace('MainScreen')}
+        />
         <Link title="skip for this" type="dark" />
       </View>
     </ImageBackground>

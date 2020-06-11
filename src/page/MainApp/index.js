@@ -4,10 +4,10 @@ import {Header, MainSearch, DocterCategory, List} from '../../components';
 import {colors} from '../../utils';
 import {dataCategoryDokter, Data, News} from '../../assets';
 
-const MainApp = () => {
+const MainApp = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <Header />
+      <Header onPress={() => navigation.navigate('Profile')} />
       <ScrollView>
         <MainSearch />
         <View style={styles['content-dokter-category']}>
@@ -49,6 +49,7 @@ const MainApp = () => {
             <View>
               {News.map(item => (
                 <List
+                  key={item.id}
                   type="news"
                   title={item.title}
                   desc={item.desc}

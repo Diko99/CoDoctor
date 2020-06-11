@@ -1,26 +1,41 @@
 import React from 'react';
-import {Text, StyleSheet, View, Image} from 'react-native';
-import {IconStar} from '../../../assets';
+import {Text, StyleSheet, View, Image, TouchableOpacity} from 'react-native';
+import {IconStar, IconNext, IconEditProfile} from '../../../assets';
 import {colors} from '../../../utils';
 
-const List = ({type, title, desc, photo}) => {
-  return (
-    <View style={styles.container(type)}>
-      <View style={styles.content}>
-        <Image source={photo} style={styles.photo} />
-        <View style={styles.wrapText}>
-          <Text style={styles.title}>{title}</Text>
-          <Text style={styles.desc}> {desc} </Text>
-        </View>
-      </View>
-      {type === 'all' && (
+const List = ({type, title, desc, photo, onPress}) => {
+  const Photo = () => {
+    if (type === 'profile') {
+      return <IconEditProfile style={styles.avt} />;
+    }
+    return <Image source={photo} style={styles.photo} />;
+  };
+
+  const Icon = () => {
+    if (type === 'all') {
+      return (
         <View style={styles.wrapStar}>
           {[1, 2, 3, 4, 5].map(() => (
             <IconStar />
           ))}
         </View>
-      )}
-    </View>
+      );
+    }
+    if (type === 'profile') {
+      return <Image source={IconNext} style={styles.icnext} />;
+    }
+  };
+  return (
+    <TouchableOpacity style={styles.container(type)} onPress={onPress}>
+      <View style={styles.content}>
+        {Photo()}
+        <View style={styles.wrapText}>
+          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.desc}> {desc} </Text>
+        </View>
+      </View>
+      {Icon()}
+    </TouchableOpacity>
   );
 };
 
@@ -63,4 +78,11 @@ const styles = StyleSheet.create({
   wrapStar: {
     flexDirection: 'row',
   },
+  avt: {
+    padding: 20,
+  },
+  icnext: {
+    width: 12,
+    height: 12,
+  }
 });

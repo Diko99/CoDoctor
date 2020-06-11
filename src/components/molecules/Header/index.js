@@ -1,9 +1,9 @@
 import React from 'react';
-import {Text, StyleSheet, View, Image} from 'react-native';
+import {Text, StyleSheet, View, Image, TouchableOpacity} from 'react-native';
 import {DummyUser1, IconIndicator} from '../../../assets';
 import {colors} from '../../../utils';
 
-const Header = () => {
+const Header = ({onPress}) => {
   return (
     <View style={styles.container}>
       <View>
@@ -13,9 +13,9 @@ const Header = () => {
         <Text style={styles.title}>Andiko Mahendra</Text>
         <Text style={styles.desc}>Frontend Developers</Text>
       </View>
-      <View>
+      <TouchableOpacity onPress={onPress}>
         <Image source={DummyUser1} style={styles.avatar} />
-      </View>
+      </TouchableOpacity>
     </View>
   );
 };

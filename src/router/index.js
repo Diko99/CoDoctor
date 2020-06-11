@@ -8,6 +8,9 @@ import {
   MainApp,
   Messages,
   Hospitals,
+  Profile,
+  UploadPhoto,
+  EditProfile,
 } from '../page';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {BottomNavigator} from '../components';
@@ -27,7 +30,7 @@ const MainScreen = () => {
 
 const Router = () => {
   return (
-    <Stack.Navigator initialRouteName="MainScreen">
+    <Stack.Navigator initialRouteName="Splash">
       <Stack.Screen
         name="Splash"
         component={SplashScreen}
@@ -49,8 +52,23 @@ const Router = () => {
         options={{headerShown: false}}
       />
       <Stack.Screen
+        name="UploadPhoto"
+        component={UploadPhoto}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
         name="MainScreen"
         component={MainScreen}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Profile"
+        component={Profile}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="EditProfile"
+        component={EditProfile}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

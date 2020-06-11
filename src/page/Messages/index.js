@@ -12,7 +12,12 @@ const Messages = () => {
       </View>
       {dataMessages.map(item => (
         <View style={styles.content}>
-          <List photo={item.photo} title={item.title} desc={item.desc} />
+          <List
+            key={item.id}
+            photo={item.photo}
+            title={item.title}
+            desc={item.desc}
+          />
         </View>
       ))}
     </View>

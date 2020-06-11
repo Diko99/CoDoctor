@@ -25,7 +25,7 @@ const Registered = ({navigation}) => {
           <Button
             title="Mendaftar"
             type="register"
-            onPress={() => navigation.navigate('MainScreen')}
+            onPress={() => navigation.navigate('UploadPhoto')}
           />
         </ScrollView>
       </View>

@@ -3,17 +3,28 @@ import {Text, StyleSheet, View, Image} from 'react-native';
 import {DummyUser1, IconAdd} from '../../../assets';
 import {colors} from '../../../utils';
 
-const AddPhoto = () => {
+const AddPhoto = ({title, desc, type}) => {
+  const Icon = () => {
+    if (type === 'profile') {
+      return null;
+    }
+    if (type === 'edit-profile') {
+      return <IconAdd style={styles.icon} />;
+    }
+    return <IconAdd style={styles.icon} />;
+  };
   return (
     <View style={styles.container}>
-      <View style={styles.content}>
+      <View style={styles.content(type)}>
         <Image source={DummyUser1} style={styles.avatar} />
-        <IconAdd style={styles.icon} />
+        {Icon()}
       </View>
-      <View style={styles.wrapperDesc}>
-        <Text style={styles.title}>Andiko Mahendra</Text>
-        <Text style={styles.profession}>Frontend Developer</Text>
-      </View>
+      {title && (
+        <View style={styles.wrapperDesc(type)}>
+          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.profession}>{desc}</Text>
+        </View>
+      )}
     </View>
   );
 };
@@ -25,8 +36,8 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
   },
-  content: {
-    marginTop: 100,
+  content: type => ({
+    marginTop: type === 'profile' || type === 'edit-profile' ? 10 : 100,
     width: 146,
     height: 146,
     borderWidth: 2,
@@ -34,7 +45,7 @@ const styles = StyleSheet.create({
     borderRadius: 146 / 2,
     alignItems: 'center',
     justifyContent: 'center',
-  },
+  }),
   avatar: {
     width: 140,
     height: 140,
@@ -45,9 +56,9 @@ const styles = StyleSheet.create({
     bottom: 0,
     right: 10,
   },
-  wrapperDesc: {
-    marginTop: 35,
-  },
+  wrapperDesc: type => ({
+    marginTop: type === 'profile' ? 15 : 35,
+  }),
   title: {
     fontSize: 22,
     fontFamily: 'Mukta-SemiBold',

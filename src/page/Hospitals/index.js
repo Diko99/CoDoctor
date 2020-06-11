@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Mukta-Medium',
   },
   'subtitle-content': {
-    fontSize: 14,
+    fontSize: 16,
     color: colors.primary,
     fontFamily: 'Mukta-Medium',
     lineHeight: 20,
