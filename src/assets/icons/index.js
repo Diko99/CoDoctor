@@ -16,6 +16,7 @@ import IconEditProfile from './ic-edit-profile.svg';
 import IconHelp from './ic-help.svg';
 import IconRate from './ic-rate.svg';
 import IconLanguages from './ic-languages.svg';
+import IconSend from './ic-send.svg'
 
 export {
   IconAdd,
@@ -36,4 +37,5 @@ export {
   IconHelp,
   IconRate,
   IconLanguages,
+  IconSend,
 };

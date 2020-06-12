@@ -5,6 +5,8 @@ import DocterCategory from './DocterCategory';
 import List from './List';
 import BottomNavigator from './BottomNavigator';
 import SecondHeader from './SecondHeader';
+import Inbox from './Inbox';
+import SendItem from './SendItem';
 
 export {
   AddPhoto,
@@ -14,4 +16,6 @@ export {
   List,
   BottomNavigator,
   SecondHeader,
+  Inbox,
+  SendItem,
 };

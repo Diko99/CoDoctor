@@ -12,6 +12,7 @@ const mainColors = {
   orange1: '#D66F10',
   white: '#FFFFFF',
   black: '#000000',
+  black2: '#343434',
 };
 
 export const colors = {
@@ -23,6 +24,8 @@ export const colors = {
   border: mainColors.grey3,
   cardLight: mainColors.green5,
   orange: mainColors.orange1,
+  isMe: mainColors.green2,
+  isMeText: mainColors.black2,
   button: {
     primary: {
       background: mainColors.dark1,

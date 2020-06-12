@@ -16,7 +16,7 @@ const Header = ({title, desc, onPress, type}) => {
   return (
     <View style={styles.container(type)}>
       {IconLeft()}
-      <View style={styles.wrapperTitle}>
+      <View style={styles.wrapperTitle(type)}>
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.desc}>{desc}</Text>
       </View>
@@ -43,9 +43,10 @@ const styles = StyleSheet.create({
     width: 10,
     height: 16,
   },
-  wrapperTitle: {
+  wrapperTitle: type => ({
     flex: 1,
-  },
+    paddingLeft: type === 'chat' ? 10 : 0,
+  }),
   title: {
     textAlign: 'center',
     color: colors.white,
