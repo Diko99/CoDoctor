@@ -1,17 +1,24 @@
 import React from 'react';
 import {Text, StyleSheet, View, Image, TouchableOpacity} from 'react-native';
-import {DummyUser1, IconIndicator} from '../../../assets';
+import {DummyUser1, IconIndicator, IconBackLight} from '../../../assets';
 import {colors} from '../../../utils';
 
-const Header = ({onPress}) => {
+const Header = ({title, desc, onPress, type}) => {
+  const IconLeft = () => {
+    if (type === 'mainApp') {
+      return <Image source={IconIndicator} style={styles.iconindicator} />;
+    }
+    if (type === 'chat') {
+      return <IconBackLight style={styles.iconindicator} />;
+    }
+    return <Image source={IconIndicator} style={styles.iconindicator} />;
+  };
   return (
-    <View style={styles.container}>
-      <View>
-        <Image source={IconIndicator} style={styles.iconindicator} />
-      </View>
+    <View style={styles.container(type)}>
+      {IconLeft()}
       <View style={styles.wrapperTitle}>
-        <Text style={styles.title}>Andiko Mahendra</Text>
-        <Text style={styles.desc}>Frontend Developers</Text>
+        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.desc}>{desc}</Text>
       </View>
       <TouchableOpacity onPress={onPress}>
         <Image source={DummyUser1} style={styles.avatar} />
@@ -23,13 +30,15 @@ const Header = ({onPress}) => {
 export default Header;
 
 const styles = StyleSheet.create({
-  container: {
+  container: type => ({
     flexDirection: 'row',
     paddingHorizontal: 16,
     paddingVertical: 20,
     alignItems: 'center',
     backgroundColor: colors.primary,
-  },
+    borderBottomLeftRadius: type === 'chat' ? 10 : 0,
+    borderBottomRightRadius: type === 'chat' ? 10 : 0,
+  }),
   iconindicator: {
     width: 10,
     height: 16,

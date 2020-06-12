@@ -8,6 +8,9 @@ const List = ({type, title, desc, photo, onPress}) => {
     if (type === 'profile') {
       return <IconEditProfile style={styles.avt} />;
     }
+    if (type === 'docter-profile') {
+      return null;
+    }
     return <Image source={photo} style={styles.photo} />;
   };
 
@@ -25,13 +28,17 @@ const List = ({type, title, desc, photo, onPress}) => {
       return <Image source={IconNext} style={styles.icnext} />;
     }
   };
+
   return (
-    <TouchableOpacity style={styles.container(type)} onPress={onPress}>
+    <TouchableOpacity
+      style={styles.container(type)}
+      onPress={onPress}
+      disabled={type === 'docter-profile'}>
       <View style={styles.content}>
         {Photo()}
         <View style={styles.wrapText}>
-          <Text style={styles.title}>{title}</Text>
-          <Text style={styles.desc}> {desc} </Text>
+          <Text style={styles.title(type)}>{title}</Text>
+          <Text style={styles.desc(type)}> {desc} </Text>
         </View>
       </View>
       {Icon()}
@@ -47,9 +54,22 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: 10,
-    paddingHorizontal: type === 'news' ? 16 : 0,
-    borderBottomWidth: type === 'news' ? 1 : 0,
-    borderBottomColor: type === 'news' && colors.disabled,
+    paddingHorizontal: type === 'news' || type === 'docter-profile' ? 16 : 0,
+    borderBottomWidth:
+      type === 'news' ||
+      type === 'profile' ||
+      type === 'docter' ||
+      type === 'docter-profile'
+        ? 1
+        : 0,
+    borderBottomColor:
+      type === 'news'
+        ? colors.disabled
+        : type === 'profile'
+        ? colors.disabled
+        : type === 'docter'
+        ? colors.disabled
+        : colors.disabled,
   }),
   content: {
     flexDirection: 'row',
@@ -65,16 +85,16 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: colors.disabled,
   },
-  title: {
-    fontSize: 16,
+  title: type => ({
+    fontSize: type === 'docter-profile' ? 14 : 16,
     fontFamily: 'Mukta-Medium',
-    color: colors.primary,
-  },
-  desc: {
-    fontSize: 14,
-    fontFamily: 'Mukta-Light',
-    color: colors.border,
-  },
+    color: type === 'docter-profile' ? colors.border : colors.primary,
+  }),
+  desc: type => ({
+    fontSize: type === 'docter-profile' ? 16 : 14,
+    fontFamily: type === 'docter-profile' ? 'Mukta-SemiBold' : 'Mukta-Light',
+    color: type === 'docter-profile' ? colors.primary : colors.border,
+  }),
   wrapStar: {
     flexDirection: 'row',
   },
@@ -84,5 +104,5 @@ const styles = StyleSheet.create({
   icnext: {
     width: 12,
     height: 12,
-  }
+  },
 });

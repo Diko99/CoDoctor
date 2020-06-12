@@ -104,4 +104,59 @@ const dataHospitals = [
   },
 ];
 
-export {Data, News, dataMessages, dataHospitals};
+const listMenuProfile = [
+  {
+    id: 1,
+    title: 'Edit Profile',
+    desc: 'Last Update Yesterday',
+    type: 'profile',
+  },
+  {
+    id: 2,
+    title: 'Languages',
+    desc: 'Last Update Yesterday',
+    type: 'profile',
+  },
+  {
+    id: 3,
+    title: 'Give Us Rated',
+    desc: 'Last Update Yesterday',
+    type: 'profile',
+  },
+  {
+    id: 4,
+    title: 'Sign Out',
+    desc: 'Last Update Yesterday',
+    type: 'profile',
+  },
+];
+
+const dummyProfileDokter = [
+  {
+    id: 1,
+    title: 'Alumnus',
+    desc: 'Universitas Gadjah Duduk',
+    type: 'docter-profile',
+  },
+  {
+    id: 2,
+    title: 'Tempat Praktik',
+    desc: 'Rumah Sakit Dr. Cipto Mangunkusumo',
+    type: 'docter-profile',
+  },
+  {
+    id: 3,
+    title: 'No. STR',
+    desc: '1122109489091098120',
+    type: 'docter-profile',
+  },
+];
+
+export {
+  Data,
+  News,
+  dataMessages,
+  dataHospitals,
+  listMenuProfile,
+  dummyProfileDokter,
+};

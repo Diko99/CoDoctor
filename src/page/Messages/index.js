@@ -1,7 +1,7 @@
 import React from 'react';
 import {Text, StyleSheet, View} from 'react-native';
 import {List} from '../../components';
-import {DummyDokter1, dataMessages} from '../../assets';
+import {dataMessages} from '../../assets';
 import {colors} from '../../utils';
 
 const Messages = () => {

@@ -7,7 +7,12 @@ import {dataCategoryDokter, Data, News} from '../../assets';
 const MainApp = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <Header onPress={() => navigation.navigate('Profile')} />
+      <Header
+        title="Andiko Mahendra"
+        desc="Frontend Enthusiast"
+        onPress={() => navigation.navigate('Profile')}
+        type="mainApp"
+      />
       <ScrollView>
         <MainSearch />
         <View style={styles['content-dokter-category']}>
@@ -18,7 +23,13 @@ const MainApp = ({navigation}) => {
           <View style={styles['cards-dokter-category']}>
             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
               {dataCategoryDokter.data.map(data => {
-                return <DocterCategory key={data.id} title={data.category} />;
+                return (
+                  <DocterCategory
+                    key={data.id}
+                    title={data.category}
+                    onPress={() => navigation.navigate('ChooseDocter')}
+                  />
+                );
               })}
             </ScrollView>
           </View>
@@ -36,6 +47,7 @@ const MainApp = ({navigation}) => {
                 title={item.title}
                 desc={item.desc}
                 type="all"
+                onPress={() => navigation.navigate('DocterProfile')}
               />
             ))}
           </View>

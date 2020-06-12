@@ -11,6 +11,9 @@ import {
   Profile,
   UploadPhoto,
   EditProfile,
+  ChooseDocter,
+  DokterProfile,
+  Chatting,
 } from '../page';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {BottomNavigator} from '../components';
@@ -30,7 +33,7 @@ const MainScreen = () => {
 
 const Router = () => {
   return (
-    <Stack.Navigator initialRouteName="Splash">
+    <Stack.Navigator initialRouteName="MainScreen">
       <Stack.Screen
         name="Splash"
         component={SplashScreen}
@@ -69,6 +72,21 @@ const Router = () => {
       <Stack.Screen
         name="EditProfile"
         component={EditProfile}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="ChooseDocter"
+        component={ChooseDocter}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="DocterProfile"
+        component={DokterProfile}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Chatting"
+        component={Chatting}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

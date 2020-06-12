@@ -1,15 +1,15 @@
 import React from 'react';
-import {Text, StyleSheet, View, Image} from 'react-native';
+import {Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import {colors} from '../../../utils';
 import {ILAnak} from '../../../assets';
 
-const DocterCategory = ({title}) => {
+const DocterCategory = ({title, onPress}) => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
       <Image source={ILAnak} style={styles.ilustration} />
       <Text style={styles['title-content']}> Saya butuh </Text>
       <Text style={styles['desc-content']}> {title} </Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 

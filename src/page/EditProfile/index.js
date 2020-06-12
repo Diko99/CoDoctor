@@ -1,13 +1,13 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, View, ScrollView} from 'react-native';
 import {SecondHeader, AddPhoto, Input, Gap, Button} from '../../components';
-import { ScrollView } from 'react-native-gesture-handler';
+import {colors} from '../../utils';
 
 const EditProfile = ({navigation}) => {
   return (
     <View style={styles.container}>
       <SecondHeader title="Edit Profile" />
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <AddPhoto type="edit-profile" />
         <View style={styles.content}>
           <Input title="Nama Lengkap" light />
@@ -32,9 +32,11 @@ export default EditProfile;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: colors.white,
   },
   content: {
-    padding: 20,
+    paddingHorizontal: 20,
     flex: 1,
+    marginTop: 30,
   },
 });

@@ -2,6 +2,7 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {SecondHeader, AddPhoto, List} from '../../components';
 import {colors} from '../../utils';
+import {listMenuProfile} from '../../assets';
 
 const Profile = ({navigation}) => {
   return (
@@ -15,24 +16,23 @@ const Profile = ({navigation}) => {
         />
       </View>
       <View style={styles.list}>
-        <List
-          desc="Last Update Yesterday"
-          type="profile"
-          title="Edit Profile"
-          onPress={() => navigation.navigate('EditProfile')}
-        />
-        <List desc="Last Update Yesterday" type="profile" title="Languages" />
-        <List
-          desc="Last Update Yesterday"
-          type="profile"
-          title="Give Us Rated"
-        />
-        <List
-          desc="Last Update Yesterday"
-          type="profile"
-          title="Sign Out"
-          onPress={() => navigation.navigate('GetStarted')}
-        />
+        {listMenuProfile.map(item => {
+          const slide = () => {
+            item.title === 'Edit Profile' && navigation.navigate('EditProfile');
+            item.title === 'Languages' && navigation.navigate('MainScreen');
+            item.title === 'Give Us Rated' && navigation.navigate('MainScreen');
+            item.title === 'Sign Out' && navigation.navigate('GetStarted');
+          };
+          return (
+            <List
+              key={item.id}
+              title={item.title}
+              desc={item.desc}
+              type={item.type}
+              onPress={() => slide()}
+            />
+          );
+        })}
       </View>
     </View>
   );
