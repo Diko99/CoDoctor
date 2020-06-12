@@ -12,7 +12,11 @@ const UploadPhoto = ({navigation}) => {
           title="Upload and Continue"
           onPress={() => navigation.replace('MainScreen')}
         />
-        <Link title="skip for this" type="dark" />
+        <Link
+          title="skip for this"
+          type="dark"
+          onPress={() => navigation.replace('MainScreen')}
+        />
       </View>
     </ImageBackground>
   );

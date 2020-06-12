@@ -1,9 +1,9 @@
 import React from 'react';
-import {Text, StyleSheet, View} from 'react-native';
+import {Text, StyleSheet, View, TouchableOpacity} from 'react-native';
 import {IconBackDark, IconBackLight} from '../../../assets';
 import {colors} from '../../../utils';
 
-const SecondHeader = ({title, type}) => {
+const SecondHeader = ({title, type, onPress}) => {
   const IconBack = () => {
     if (type === 'dark') {
       return <IconBackLight />;
@@ -13,7 +13,9 @@ const SecondHeader = ({title, type}) => {
 
   return (
     <View style={styles.container(type)}>
-      <IconBack />
+      <TouchableOpacity onPress={onPress}>
+        <IconBack />
+      </TouchableOpacity>
       <Text style={styles.title(type)}>{title}</Text>
     </View>
   );

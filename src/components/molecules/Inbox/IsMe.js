@@ -26,12 +26,12 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     paddingHorizontal: 16,
     paddingVertical: 10,
-    maxWidth: 200,
+    maxWidth: 250,
     borderBottomRightRadius: 0,
     marginBottom: 30,
   },
   text: {
-    fontSize: 12,
+    fontSize: 13,
     color: colors.isMeText,
   },
   time: {

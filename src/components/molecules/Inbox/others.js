@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   },
   content: {
     backgroundColor: colors.primary,
-    maxWidth: 200,
+    maxWidth: 250,
     borderRadius: 10,
     paddingHorizontal: 16,
     paddingVertical: 10,
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   text: {
-    fontSize: 12,
+    fontSize: 13,
     color: colors.white,
   },
   time: {

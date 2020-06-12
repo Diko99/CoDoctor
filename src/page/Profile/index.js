@@ -7,7 +7,7 @@ import {listMenuProfile} from '../../assets';
 const Profile = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <SecondHeader title="Profile" />
+      <SecondHeader title="Profile" onPress={() => navigation.goBack()} />
       <View style={styles.content}>
         <AddPhoto
           title="Andiko Mahendra"
