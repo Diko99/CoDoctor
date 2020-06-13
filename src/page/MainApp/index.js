@@ -1,5 +1,11 @@
 import React from 'react';
-import {StyleSheet, View, ScrollView, Text} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+} from 'react-native';
 import {Header, MainSearch, DocterCategory, List} from '../../components';
 import {colors} from '../../utils';
 import {dataCategoryDokter, Data, News} from '../../assets';
@@ -7,18 +13,21 @@ import {dataCategoryDokter, Data, News} from '../../assets';
 const MainApp = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <Header
-        title="Andiko Mahendra"
-        desc="Frontend Enthusiast"
-        onPress={() => navigation.navigate('Profile')}
-        type="mainApp"
-      />
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <Header
+          title="Andiko Mahendra"
+          desc="Frontend Enthusiast"
+          onPress={() => navigation.navigate('Profile')}
+          type="mainApp"
+        />
         <MainSearch />
         <View style={styles['content-dokter-category']}>
           <View style={styles['label-content']}>
             <Text style={styles['title-content']}> Docter Category </Text>
-            <Text style={styles['title-seeAll']}> See All </Text>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('SeeAllDocterCategory')}>
+              <Text style={styles['title-seeAll']}>See All</Text>
+            </TouchableOpacity>
           </View>
           <View style={styles['cards-dokter-category']}>
             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
@@ -37,7 +46,10 @@ const MainApp = ({navigation}) => {
         <View style={styles['content-topRatedDokter']}>
           <View style={styles['label-content']}>
             <Text style={styles['title-content']}> Top Rated Dokter </Text>
-            <Text style={styles['title-seeAll']}> See All </Text>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('SeeAllTopRatedDocter')}>
+              <Text style={styles['title-seeAll']}>See All</Text>
+            </TouchableOpacity>
           </View>
           <View style={styles['list-topRated-dokter']}>
             {Data.map(item => (
@@ -55,7 +67,10 @@ const MainApp = ({navigation}) => {
         <View style={styles['content-good-news']}>
           <View style={styles['label-content-news']}>
             <Text style={styles['title-content']}>Info Seputar Kesehatan</Text>
-            <Text style={styles['title-seeAll']}> See All </Text>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('SeeAllGoodNews')}>
+              <Text style={styles['title-seeAll']}> See All </Text>
+            </TouchableOpacity>
           </View>
           <View style={styles['list-content-goodNew']}>
             <View>
@@ -82,6 +97,8 @@ export default MainApp;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginBottom: 10,
+    backgroundColor: colors.white,
   },
   'content-dokter-category': {
     paddingHorizontal: 16,

@@ -31,6 +31,7 @@ export default Hospitals;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: colors.white,
   },
   imageHeader: {
     width: '100%',
@@ -72,6 +73,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: colors.primary,
     fontFamily: 'Mukta-Medium',
+    backgroundColor: colors.white,
   },
   'subtitle-content': {
     fontSize: 16,

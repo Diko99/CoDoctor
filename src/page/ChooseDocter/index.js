@@ -7,7 +7,7 @@ const ChooseDocter = ({navigation}) => {
   return (
     <View>
       <SecondHeader
-        title="Pilih Dokter"
+        title="Pilih Dokter Umum"
         type="dark"
         onPress={() => navigation.goBack()}
       />

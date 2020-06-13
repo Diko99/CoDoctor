@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: 10,
+    backgroundColor: colors.white,
     paddingHorizontal: type === 'news' || type === 'docter-profile' ? 16 : 0,
     borderBottomWidth:
       type === 'news' ||

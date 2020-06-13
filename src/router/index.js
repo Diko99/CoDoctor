@@ -15,10 +15,13 @@ import {
   DokterProfile,
   Chatting,
   GoodNews,
+  SeeAllDocterCategory,
+  SeeAllTopRatedDocter,
 } from '../page';
 
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {BottomNavigator} from '../components';
+import SeeAllGoodNews from '../page/SeeAll_GoodNews';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -94,6 +97,21 @@ const Router = () => {
       <Stack.Screen
         name="GoodNews"
         component={GoodNews}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="SeeAllDocterCategory"
+        component={SeeAllDocterCategory}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="SeeAllTopRatedDocter"
+        component={SeeAllTopRatedDocter}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="SeeAllGoodNews"
+        component={SeeAllGoodNews}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

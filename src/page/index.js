@@ -12,6 +12,8 @@ import ChooseDocter from './ChooseDocter';
 import DokterProfile from './DocterProfile';
 import Chatting from './Chatting';
 import GoodNews from './GoodNews';
+import SeeAllDocterCategory from './SeeAll_DocterCategory';
+import SeeAllTopRatedDocter from './SeeAll_TopRateDocter';
 
 export {
   SplashScreen,
@@ -28,4 +30,6 @@ export {
   DokterProfile,
   Chatting,
   GoodNews,
+  SeeAllDocterCategory,
+  SeeAllTopRatedDocter,
 };

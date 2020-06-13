@@ -31,6 +31,57 @@ const Data = [
   },
 ];
 
+const dummyDataAllRatedDocter = [
+  {
+    id: 1,
+    title: 'Diko Mahendra',
+    desc: 'Dokter Umum',
+    photo: DummyDokter1,
+  },
+  {
+    id: 2,
+    title: 'Indri Lestari',
+    desc: 'Dokter Anak',
+    photo: DummyDokter2,
+  },
+  {
+    id: 3,
+    title: 'Mira Wiranti',
+    desc: 'Dokter Kandungan',
+    photo: DummyDokter3,
+  },
+  {
+    id: 4,
+    title: 'Diko Mahendra',
+    desc: 'Dokter Umum',
+    photo: DummyDokter1,
+  },
+  {
+    id: 5,
+    title: 'Indri Lestari',
+    desc: 'Dokter Anak',
+    photo: DummyDokter2,
+  },
+  {
+    id: 6,
+    title: 'Mira Wiranti',
+    desc: 'Dokter Kandungan',
+    photo: DummyDokter3,
+  },
+  {
+    id: 7,
+    title: 'Indri Lestari',
+    desc: 'Dokter Anak',
+    photo: DummyDokter2,
+  },
+  {
+    id: 8,
+    title: 'Mira Wiranti',
+    desc: 'Dokter Kandungan',
+    photo: DummyDokter3,
+  },
+];
+
 const News = [
   {
     id: 1,
@@ -46,6 +97,63 @@ const News = [
   },
   {
     id: 3,
+    title: 'Daging',
+    desc: 'Apa manfaat mengkonsumsi daging setiap hari ?',
+    photo: ILNews3,
+  },
+];
+
+const dummyDataAllGoodNews = [
+  {
+    id: 1,
+    title: 'Buah-buahan',
+    desc: 'Apa manfaat mengkonsumsi Buah setiap hari ?',
+    photo: ILNews1,
+  },
+  {
+    id: 2,
+    title: 'Sayur-sayuran',
+    desc: 'Apa manfaat mengkonsumsi Sayur setiap hari ?',
+    photo: ILNews2,
+  },
+  {
+    id: 3,
+    title: 'Daging',
+    desc: 'Apa manfaat mengkonsumsi daging setiap hari ?',
+    photo: ILNews3,
+  },
+  {
+    id: 4,
+    title: 'Buah-buahan',
+    desc: 'Apa manfaat mengkonsumsi Buah setiap hari ?',
+    photo: ILNews1,
+  },
+  {
+    id: 5,
+    title: 'Sayur-sayuran',
+    desc: 'Apa manfaat mengkonsumsi Sayur setiap hari ?',
+    photo: ILNews2,
+  },
+  {
+    id: 6,
+    title: 'Daging',
+    desc: 'Apa manfaat mengkonsumsi daging setiap hari ?',
+    photo: ILNews3,
+  },
+  {
+    id: 7,
+    title: 'Buah-buahan',
+    desc: 'Apa manfaat mengkonsumsi Buah setiap hari ?',
+    photo: ILNews1,
+  },
+  {
+    id: 8,
+    title: 'Sayur-sayuran',
+    desc: 'Apa manfaat mengkonsumsi Sayur setiap hari ?',
+    photo: ILNews2,
+  },
+  {
+    id: 9,
     title: 'Daging',
     desc: 'Apa manfaat mengkonsumsi daging setiap hari ?',
     photo: ILNews3,
@@ -169,4 +277,6 @@ export {
   listMenuProfile,
   dummyProfileDokter,
   dummGoodNews,
+  dummyDataAllRatedDocter,
+  dummyDataAllGoodNews,
 };
