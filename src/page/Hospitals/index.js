@@ -2,6 +2,7 @@ import React from 'react';
 import {Text, StyleSheet, View, ImageBackground, Image} from 'react-native';
 import {ILHospital1, dataHospitals} from '../../assets';
 import {colors} from '../../utils';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const Hospitals = () => {
   return (
@@ -11,16 +12,18 @@ const Hospitals = () => {
         <Text style={styles.desc}>4 Tersedia</Text>
       </ImageBackground>
       <View style={styles.content}>
-        {dataHospitals.map(item => (
-          <View key={item.id} style={styles['list-content']}>
-            <Image source={item.photo} style={styles['image-content']} />
-            <View style={styles['title-content']}>
-              <Text style={styles['title-content']}>{item.title}</Text>
-              <Text style={styles['subtitle-content']}>{item.subtitle}</Text>
-              <Text style={styles['desc-content']}>{item.desc}</Text>
+        <ScrollView showsVerticalScrollIndicator={false}>
+          {dataHospitals.map(item => (
+            <View key={item.id} style={styles['list-content']}>
+              <Image source={item.photo} style={styles['image-content']} />
+              <View style={styles['title-content']}>
+                <Text style={styles['title-content']}>{item.title}</Text>
+                <Text style={styles['subtitle-content']}>{item.subtitle}</Text>
+                <Text style={styles['desc-content']}>{item.desc}</Text>
+              </View>
             </View>
-          </View>
-        ))}
+          ))}
+        </ScrollView>
       </View>
     </View>
   );
@@ -41,12 +44,12 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    color: colors.primary,
+    color: colors.white,
     fontFamily: 'Mukta-SemiBold',
   },
   desc: {
     fontSize: 18,
-    color: colors.primary,
+    color: colors.white,
     fontFamily: 'Mukta-Medium',
   },
   content: {
@@ -70,13 +73,13 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   'title-content': {
-    fontSize: 16,
+    fontSize: 14,
     color: colors.primary,
     fontFamily: 'Mukta-Medium',
     backgroundColor: colors.white,
   },
   'subtitle-content': {
-    fontSize: 16,
+    fontSize: 14,
     color: colors.primary,
     fontFamily: 'Mukta-Medium',
     lineHeight: 20,

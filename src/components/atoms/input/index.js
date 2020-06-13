@@ -8,7 +8,7 @@ const Input = ({title, secureTextEntry, light, type}) => {
     return (
       <View style={styles['container-search']}>
         <TextInput
-          placeholderTextColor={light ? colors.primary : colors.white}
+          placeholderTextColor={light ? colors.border : colors.border}
           placeholder={title}
           style={styles['input-search']}
           secureTextEntry={secureTextEntry}

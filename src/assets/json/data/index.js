@@ -210,6 +210,34 @@ const dataHospitals = [
     desc: 'Jln. Jendral Ahmad Yani 91',
     photo: ILHospital4,
   },
+  {
+    id: 5,
+    title: 'Rumah Sakit',
+    subtitle: 'Umum Pusat Fatmawati',
+    desc: 'Jln. Jendral Ahmad Yani 91',
+    photo: ILHospital1,
+  },
+  {
+    id: 6,
+    title: 'Rumah Sakit',
+    subtitle: 'Dr. Cipto Mangunkusomo',
+    desc: 'Jln. Jendral Ahmad Yani 91',
+    photo: ILHospital2,
+  },
+  {
+    id: 7,
+    title: 'Rumah Sakit',
+    subtitle: 'Jakarta Eye Center Kedoyo',
+    desc: 'Jln. Jendral Ahmad Yani 91',
+    photo: ILHospital3,
+  },
+  {
+    id: 8,
+    title: 'Rumah Sakit',
+    subtitle: 'Gatot Soebroto',
+    desc: 'Jln. Jendral Ahmad Yani 91',
+    photo: ILHospital4,
+  },
 ];
 
 const listMenuProfile = [
