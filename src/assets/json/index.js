@@ -6,6 +6,7 @@ import {
   dataHospitals,
   listMenuProfile,
   dummyProfileDokter,
+  dummGoodNews,
 } from './data';
 
 export {
@@ -16,4 +17,5 @@ export {
   dataHospitals,
   listMenuProfile,
   dummyProfileDokter,
+  dummGoodNews,
 };

@@ -66,6 +66,7 @@ const MainApp = ({navigation}) => {
                   title={item.title}
                   desc={item.desc}
                   photo={item.photo}
+                  onPress={() => navigation.navigate('GoodNews')}
                 />
               ))}
             </View>

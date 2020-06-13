@@ -3,10 +3,15 @@ import {StyleSheet, Text, View, ScrollView} from 'react-native';
 import {Header, Inbox, SendItem} from '../../components';
 import {colors} from '../../utils';
 
-const Chatting = () => {
+const Chatting = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <Header type="chat" title="Diko Mahendra" desc="Dokter Umum" />
+      <Header
+        type="chat"
+        title="Diko Mahendra"
+        desc="Dokter Umum"
+        onPress={() => navigation.goBack()}
+      />
       <View style={styles.content}>
         <ScrollView showsVerticalScrollIndicator={false}>
           <Text style={styles.chatID}>Selasa, 12 Januari 2012</Text>

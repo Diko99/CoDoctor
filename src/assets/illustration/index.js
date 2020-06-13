@@ -16,6 +16,7 @@ import ILHospital5 from './il-hospitals5.png';
 import ILNews1 from './il-news1.png';
 import ILNews2 from './il-news2.png';
 import ILNews3 from './il-news3.png';
+import ILGoodNews from './dummyGoodNews.jpg';
 
 export {
   Logo,
@@ -36,4 +37,5 @@ export {
   ILHospital3,
   ILHospital4,
   ILHospital5,
+  ILGoodNews,
 };

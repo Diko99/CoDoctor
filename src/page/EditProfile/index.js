@@ -6,7 +6,7 @@ import {colors} from '../../utils';
 const EditProfile = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <SecondHeader title="Edit Profile" />
+      <SecondHeader title="Edit Profile" onPress={() => navigation.goBack()} />
       <ScrollView showsVerticalScrollIndicator={false}>
         <AddPhoto type="edit-profile" />
         <View style={styles.content}>

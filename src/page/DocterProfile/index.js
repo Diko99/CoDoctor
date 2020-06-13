@@ -7,7 +7,11 @@ import {dummyProfileDokter} from '../../assets';
 const DokterProfile = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <SecondHeader light title="Profile Dokter" />
+      <SecondHeader
+        light
+        title="Profile Dokter"
+        onPress={() => navigation.goBack()}
+      />
       <AddPhoto type="profile" title="Diko Mahendra" desc="Dokter Umum" />
       <View style={styles.content}>
         {dummyProfileDokter.map(item => (

@@ -6,7 +6,11 @@ import {DummyDokter1, DummyDokter2, DummyDokter3} from '../../assets';
 const ChooseDocter = ({navigation}) => {
   return (
     <View>
-      <SecondHeader title="Pilih Dokter" type="dark" />
+      <SecondHeader
+        title="Pilih Dokter"
+        type="dark"
+        onPress={() => navigation.goBack()}
+      />
       <View style={styles.container}>
         <List
           type="docter"

@@ -4,7 +4,7 @@ import {List} from '../../components';
 import {dataMessages} from '../../assets';
 import {colors} from '../../utils';
 
-const Messages = () => {
+const Messages = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -17,6 +17,7 @@ const Messages = () => {
             photo={item.photo}
             title={item.title}
             desc={item.desc}
+            onPress={() => navigation.navigate('Chatting')}
           />
         </View>
       ))}

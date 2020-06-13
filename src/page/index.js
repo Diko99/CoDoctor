@@ -11,6 +11,7 @@ import EditProfile from './EditProfile';
 import ChooseDocter from './ChooseDocter';
 import DokterProfile from './DocterProfile';
 import Chatting from './Chatting';
+import GoodNews from './GoodNews';
 
 export {
   SplashScreen,
@@ -26,4 +27,5 @@ export {
   ChooseDocter,
   DokterProfile,
   Chatting,
+  GoodNews,
 };

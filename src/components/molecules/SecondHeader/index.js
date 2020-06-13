@@ -13,8 +13,8 @@ const SecondHeader = ({title, type, onPress}) => {
 
   return (
     <View style={styles.container(type)}>
-      <TouchableOpacity onPress={onPress}>
-        <IconBack />
+      <TouchableOpacity onPress={onPress} style={styles.button}>
+        {IconBack()}
       </TouchableOpacity>
       <Text style={styles.title(type)}>{title}</Text>
     </View>
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 30,
+    paddingVertical: 20,
     paddingHorizontal: 16,
     backgroundColor: type === 'dark' ? colors.primary : colors.white,
     borderBottomLeftRadius: type === 'dark' ? 20 : 0,
@@ -36,10 +36,13 @@ const styles = StyleSheet.create({
   }),
   title: type => ({
     flex: 1,
-    marginLeft: -20,
+    marginLeft: -40,
     fontSize: 22,
     fontFamily: 'Mukta-SemiBold',
     textAlign: 'center',
     color: type === 'dark' && colors.white,
   }),
+  button: {
+    padding: 10,
+  },
 });
