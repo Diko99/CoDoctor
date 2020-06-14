@@ -98,6 +98,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.white,
     justifyContent: 'center',
+    paddingTop: 20,
   },
   content: {
     flexWrap: 'wrap',

@@ -58,7 +58,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     padding: 10,
     backgroundColor: colors.primary,
+    paddingTop: 10,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
-  },
+},
 });

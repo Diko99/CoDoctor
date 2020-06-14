@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {StatusBar, View, Text, StyleSheet} from 'react-native';
 import {colors} from '../../utils';
 import {Logo} from '../../assets';
 
@@ -12,6 +12,11 @@ const SplashScreen = ({navigation}) => {
 
   return (
     <View style={styles.container}>
+      <StatusBar
+        translucent
+        barStyle="light-content"
+        backgroundColor="transparent"
+      />
       <View style={styles.content}>
         <Logo />
         <Text style={styles.text}>CoApp</Text>

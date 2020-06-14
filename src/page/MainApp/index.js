@@ -14,57 +14,58 @@ const MainApp = ({navigation}) => {
   return (
     <View style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <Header
-          title="Andiko Mahendra"
-          desc="Frontend Enthusiast"
-          onPress={() => navigation.navigate('Profile')}
-          type="mainApp"
-        />
-        <MainSearch />
-        <View style={styles['content-dokter-category']}>
-          <View style={styles['label-content']}>
-            <Text style={styles['title-content']}> Docter Category </Text>
-            <TouchableOpacity
-              onPress={() => navigation.navigate('SeeAllDocterCategory')}>
-              <Text style={styles['title-seeAll']}>See All</Text>
-            </TouchableOpacity>
+        <View style={styles.content}>
+          <Header
+            title="Andiko Mahendra"
+            desc="Frontend Enthusiast"
+            onPress={() => navigation.navigate('Profile')}
+            type="mainApp"
+          />
+          <MainSearch />
+          <View style={styles['content-dokter-category']}>
+            <View style={styles['label-content']}>
+              <Text style={styles['title-content']}> Docter Category </Text>
+              <TouchableOpacity
+                onPress={() => navigation.navigate('SeeAllDocterCategory')}>
+                <Text style={styles['title-seeAll']}>See All</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles['cards-dokter-category']}>
+              <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+                {dataCategoryDokter.data.map(data => {
+                  return (
+                    <DocterCategory
+                      key={data.id}
+                      title={data.category}
+                      onPress={() => navigation.navigate('ChooseDocter')}
+                    />
+                  );
+                })}
+              </ScrollView>
+            </View>
           </View>
-          <View style={styles['cards-dokter-category']}>
-            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-              {dataCategoryDokter.data.map(data => {
-                return (
-                  <DocterCategory
-                    key={data.id}
-                    title={data.category}
-                    onPress={() => navigation.navigate('ChooseDocter')}
-                  />
-                );
-              })}
-            </ScrollView>
+          <View style={styles['content-topRatedDokter']}>
+            <View style={styles['label-content']}>
+              <Text style={styles['title-content']}> Top Rated Dokter </Text>
+              <TouchableOpacity
+                onPress={() => navigation.navigate('SeeAllTopRatedDocter')}>
+                <Text style={styles['title-seeAll']}>See All</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles['list-topRated-dokter']}>
+              {Data.map(item => (
+                <List
+                  key={item.id}
+                  photo={item.photo}
+                  title={item.title}
+                  desc={item.desc}
+                  type="all"
+                  onPress={() => navigation.navigate('DocterProfile')}
+                />
+              ))}
+            </View>
           </View>
-        </View>
-        <View style={styles['content-topRatedDokter']}>
-          <View style={styles['label-content']}>
-            <Text style={styles['title-content']}> Top Rated Dokter </Text>
-            <TouchableOpacity
-              onPress={() => navigation.navigate('SeeAllTopRatedDocter')}>
-              <Text style={styles['title-seeAll']}>See All</Text>
-            </TouchableOpacity>
-          </View>
-          <View style={styles['list-topRated-dokter']}>
-            {Data.map(item => (
-              <List
-                key={item.id}
-                photo={item.photo}
-                title={item.title}
-                desc={item.desc}
-                type="all"
-                onPress={() => navigation.navigate('DocterProfile')}
-              />
-            ))}
-          </View>
-        </View>
-        <View style={styles['content-good-news']}>
+          <View style={styles['content-good-news']} />
           <View style={styles['label-content-news']}>
             <Text style={styles['title-content']}>Info Seputar Kesehatan</Text>
             <TouchableOpacity
@@ -97,8 +98,11 @@ export default MainApp;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginBottom: 10,
     backgroundColor: colors.white,
+  },
+  content: {
+    backgroundColor: colors.white,
+    flex: 1,
   },
   'content-dokter-category': {
     paddingHorizontal: 16,

@@ -25,6 +25,7 @@ export default SecondHeader;
 
 const styles = StyleSheet.create({
   container: type => ({
+    paddingTop: type === 'dark' ? 50 : 40,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
@@ -37,7 +38,7 @@ const styles = StyleSheet.create({
   title: type => ({
     flex: 1,
     marginLeft: -40,
-    fontSize: 22,
+    fontSize: type === 'dark' ? 18 : 22,
     fontFamily: 'Mukta-SemiBold',
     textAlign: 'center',
     color: type === 'dark' && colors.white,

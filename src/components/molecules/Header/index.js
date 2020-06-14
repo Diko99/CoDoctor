@@ -31,9 +31,9 @@ export default Header;
 
 const styles = StyleSheet.create({
   container: type => ({
+    paddingTop: 40,
     flexDirection: 'row',
     paddingHorizontal: 16,
-    paddingVertical: 20,
     alignItems: 'center',
     backgroundColor: colors.primary,
     borderBottomLeftRadius: type === 'chat' ? 10 : 0,

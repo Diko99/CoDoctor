@@ -10,10 +10,10 @@ export default Dot;
 
 const styles = StyleSheet.create({
   dot: status => ({
-    width: 10,
-    height: 10,
+    width: 8,
+    height: 8,
     backgroundColor: status === 'active' ? colors.secondary : colors.white,
-    borderRadius: 10 / 2,
+    borderRadius: 8 / 2,
     marginHorizontal: 2,
   }),
 });

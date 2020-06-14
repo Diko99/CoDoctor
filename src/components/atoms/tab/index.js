@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
+    marginBottom: -5,
     marginTop: 2,
     color: colors.border,
     fontSize: 12,

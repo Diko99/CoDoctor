@@ -2,16 +2,17 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {SecondHeader, List} from '../../components';
 import {DummyDokter1, DummyDokter2, DummyDokter3} from '../../assets';
+import { colors } from '../../utils';
 
 const ChooseDocter = ({navigation}) => {
   return (
-    <View>
+    <View style={styles.container}>
       <SecondHeader
         title="Pilih Dokter Umum"
         type="dark"
         onPress={() => navigation.goBack()}
       />
-      <View style={styles.container}>
+      <View style={styles.content}>
         <List
           type="docter"
           title="Dr. Diko Mahendra"
@@ -40,6 +41,10 @@ export default ChooseDocter;
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    backgroundColor: colors.white,
+  },
+  content: {
     padding: 16,
   },
 });
