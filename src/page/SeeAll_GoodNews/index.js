@@ -9,7 +9,7 @@ const SeeAllGoodNews = ({navigation}) => {
     <View style={styles.container}>
       <MainSearch placeholder="Cari info seputar kesehatan" type="seeAll" />
       <Text style={styles.title}>Info Seputar Kesehatan</Text>
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View>
           {dummyDataAllGoodNews.map(item => (
             <List

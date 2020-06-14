@@ -21,7 +21,11 @@ const MainApp = ({navigation}) => {
             onPress={() => navigation.navigate('Profile')}
             type="mainApp"
           />
-          <MainSearch />
+          <View style={styles['wrapper-text']}>
+            <Text style={styles['title-text']}>
+              Mau konsultasi dengan siapa hari ini ?
+            </Text>
+          </View>
           <View style={styles['content-dokter-category']}>
             <View style={styles['label-content']}>
               <Text style={styles['title-content']}> Docter Category </Text>
@@ -100,6 +104,15 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.white,
   },
+  'wrapper-text': {
+    width: 250,
+    padding: 16,
+  },
+  'title-text': {
+    fontSize: 20,
+    marginTop: 20,
+    color: colors.primary,
+  },
   content: {
     backgroundColor: colors.white,
     flex: 1,
@@ -108,7 +121,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
   },
   'cards-dokter-category': {
-    marginTop: 10,
     flexDirection: 'row',
   },
   'label-content': {

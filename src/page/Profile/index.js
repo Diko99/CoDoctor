@@ -17,11 +17,11 @@ const Profile = ({navigation}) => {
       </View>
       <View style={styles.list}>
         {listMenuProfile.map(item => {
-          const slide = () => {
+          const goTo = () => {
             item.title === 'Edit Profile' && navigation.navigate('EditProfile');
             item.title === 'Languages' && navigation.navigate('MainScreen');
             item.title === 'Give Us Rated' && navigation.navigate('MainScreen');
-            item.title === 'Sign Out' && navigation.navigate('GetStarted');
+            item.title === 'Sign Out' && navigation.navigate('Login');
           };
           return (
             <List
@@ -29,7 +29,7 @@ const Profile = ({navigation}) => {
               title={item.title}
               desc={item.desc}
               type={item.type}
-              onPress={() => slide()}
+              onPress={() => goTo()}
             />
           );
         })}

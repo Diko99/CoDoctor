@@ -2,6 +2,7 @@ import ILHero1 from './illustration-1.png';
 import ILHero2 from './illustration-2.png';
 import ILHero3 from './illustration-3.png';
 import ILHero4 from './illustration-4.png';
+import ILHero5 from './illustration-3-transparent.png';
 import ILBackgroundDark from './background-dark.png';
 import ILBackgroundLight from './background-light.png';
 import Logo from './logo.svg';
@@ -24,6 +25,7 @@ export {
   ILHero2,
   ILHero3,
   ILHero4,
+  ILHero5,
   ILBackgroundDark,
   ILBackgroundLight,
   ILUmum,

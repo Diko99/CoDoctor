@@ -9,7 +9,7 @@ const SeeAllTopRatedDocter = ({navigation}) => {
     <View style={styles.container}>
       <MainSearch placeholder="Cari info seputar kesehatan" type="seeAll" />
       <Text style={styles.title}>Top Rated Docter</Text>
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.content}>
           {dummyDataAllRatedDocter.map(item => (
             <List
