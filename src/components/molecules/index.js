@@ -7,6 +7,7 @@ import BottomNavigator from './BottomNavigator';
 import SecondHeader from './SecondHeader';
 import Inbox from './Inbox';
 import SendItem from './SendItem';
+import Loading from './Loading';
 
 export {
   AddPhoto,
@@ -18,4 +19,5 @@ export {
   SecondHeader,
   Inbox,
   SendItem,
+  Loading,
 };

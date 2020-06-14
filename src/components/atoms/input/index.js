@@ -3,7 +3,7 @@ import {TextInput, StyleSheet, View} from 'react-native';
 import {colors} from '../../../utils';
 import {IconSearch} from '../../../assets';
 
-const Input = ({title, secureTextEntry, light, type}) => {
+const Input = ({title, value, secureTextEntry, light, type, onChangeText}) => {
   if (type === 'form-search') {
     return (
       <View style={styles['container-search']}>
@@ -24,6 +24,8 @@ const Input = ({title, secureTextEntry, light, type}) => {
         placeholderTextColor={light ? colors.primary : colors.white}
         placeholder={title}
         style={styles.input}
+        onChangeText={onChangeText}
+        value={value}
         secureTextEntry={secureTextEntry}
       />
     </View>

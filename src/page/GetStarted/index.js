@@ -72,6 +72,7 @@ const styles = StyleSheet.create({
   title: {
     color: colors.white,
     fontSize: 20,
+    marginTop: 30,
     fontFamily: 'Mukta-Bold',
     textAlign: 'center',
   },
@@ -81,6 +82,6 @@ const styles = StyleSheet.create({
     fontFamily: 'Mukta-Light',
     textAlign: 'center',
     width: 236,
-    marginTop: 20,
+    marginTop: 10,
   },
 });

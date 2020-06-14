@@ -7,34 +7,82 @@ import {
   ScrollView,
 } from 'react-native';
 import {ILBackgroundLight} from '../../assets';
-import {Input, Button, Gap, Link} from '../../components';
+import {Input, Button, Gap, Link, Loading} from '../../components';
+import {useForm} from '../../utils';
+import {Firebase} from '../../config';
 
 const Registered = ({navigation}) => {
+  const [form, setForm] = useForm({
+    fullName: '',
+    profession: '',
+    email: '',
+    password: '',
+  });
+  const onContinue = () => {
+    Firebase.auth()
+      .createUserWithEmailAndPassword(form.email, form.password)
+      .then(success => {
+        setForm('reset');
+        const data = {
+          fullName: form.fullName,
+          profession: form.profession,
+          email: form.email,
+          password: form.password,
+        };
+        Firebase.database()
+          .ref('users/' + success.user.uid + '/')
+          .set(data);
+        console.log('success', success);
+      })
+      .catch(error => {
+        console.log('failed!', error);
+      });
+  };
   return (
-    <ImageBackground source={ILBackgroundLight} style={styles.container}>
-      <View style={styles.content}>
-        <Text style={styles.title}>Create new account</Text>
-        <ScrollView showsVerticalScrollIndicator={false}>
-          <Input title="Nama Lengkap" light />
-          <Gap height={15} />
-          <Input title="Email" light />
-          <Gap height={15} />
-          <Input title="Pekerjaan" light />
-          <Gap height={15} />
-          <Input title="Password" light secureTextEntry />
-          <Button
-            title="Mendaftar"
-            type="register"
-            onPress={() => navigation.navigate('UploadPhoto')}
-          />
-        </ScrollView>
-      </View>
-      <Link
-        title="Sudah memiliki akun ?  Masuk"
-        type="dark"
-        onPress={() => navigation.navigate('Login')}
-      />
-    </ImageBackground>
+    <>
+      <ImageBackground source={ILBackgroundLight} style={styles.container}>
+        <View style={styles.content}>
+          <Text style={styles.title}>Create new account</Text>
+          <ScrollView showsVerticalScrollIndicator={false}>
+            <Input
+              onChangeText={value => setForm('fullName', value)}
+              value={form.fullName}
+              title="Nama Lengkap"
+              light
+            />
+            <Gap height={15} />
+            <Input
+              onChangeText={value => setForm('profession', value)}
+              value={form.profession}
+              title="Pekerjaan"
+              light
+            />
+            <Gap height={15} />
+            <Input
+              onChangeText={value => setForm('email', value)}
+              value={form.email}
+              title="Email"
+              light
+            />
+            <Gap height={15} />
+            <Input
+              onChangeText={value => setForm('password', value)}
+              value={form.password}
+              title="Password"
+              light
+              secureTextEntry
+            />
+            <Button title="Mendaftar" type="register" onPress={onContinue} />
+          </ScrollView>
+        </View>
+        <Link
+          title="Sudah memiliki akun ?  Masuk"
+          type="dark"
+          onPress={() => navigation.navigate('Login')}
+        />
+      </ImageBackground>
+      <Loading />
+    </>
   );
 };
 
