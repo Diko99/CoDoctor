@@ -1,24 +1,16 @@
 import React from 'react';
-import {Text, StyleSheet, View, Image} from 'react-native';
-import {DummyUser1, IconAdd} from '../../../assets';
+import {Text, StyleSheet, View, Image, TouchableOpacity} from 'react-native';
+import {IconAdd, IconRemove} from '../../../assets';
 import {colors} from '../../../utils';
 
-const AddPhoto = ({title, desc, type}) => {
-  const Icon = () => {
-    if (type === 'profile') {
-      return null;
-    }
-    if (type === 'edit-profile') {
-      return <IconAdd style={styles.icon} />;
-    }
-    return <IconAdd style={styles.icon} />;
-  };
+const AddPhoto = ({title, desc, type, onPress, photo, icon}) => {
   return (
     <View style={styles.container}>
-      <View style={styles.content(type)}>
-        <Image source={DummyUser1} style={styles.avatar} />
-        {Icon()}
-      </View>
+      <TouchableOpacity style={styles.content(type)} onPress={onPress}>
+        <Image source={photo} style={styles.avatar} />
+        {icon && <IconRemove style={styles.icon} />}
+        {!icon && <IconAdd style={styles.icon} />}
+      </TouchableOpacity>
       {title && (
         <View style={styles.wrapperDesc(type)}>
           <Text style={styles.title}>{title}</Text>
@@ -56,6 +48,13 @@ const styles = StyleSheet.create({
     bottom: 0,
     right: 10,
   },
+  iconRemove: {
+    position: 'absolute',
+    bottom: 0,
+    right: 10,
+    width: 20,
+    height: 20,
+  },
   wrapperDesc: type => ({
     marginTop: type === 'profile' ? 15 : 35,
   }),
@@ -64,11 +63,13 @@ const styles = StyleSheet.create({
     fontFamily: 'Mukta-SemiBold',
     color: colors.primary,
     textAlign: 'center',
+    textTransform: 'capitalize',
   },
   profession: {
     fontSize: 14,
     fontFamily: 'Mukta-Regular',
     color: colors.secondary,
+    textTransform: 'capitalize',
     textAlign: 'center',
   },
 });

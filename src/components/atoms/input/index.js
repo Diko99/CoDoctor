@@ -21,7 +21,7 @@ const Input = ({title, value, secureTextEntry, light, type, onChangeText}) => {
   return (
     <View style={styles.container}>
       <TextInput
-        placeholderTextColor={light ? colors.primary : colors.white}
+        placeholderTextColor={light ? colors.border : colors.white}
         placeholder={title}
         style={styles.input}
         onChangeText={onChangeText}

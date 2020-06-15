@@ -2,11 +2,11 @@ import React from 'react';
 import {Text, StyleSheet, View, TouchableOpacity} from 'react-native';
 import {colors} from '../../../utils';
 
-const Button = ({title, type, onPress}) => {
-  if (type === 'disabled') {
+const Button = ({title, type, onPress, disable}) => {
+  if (disable) {
     return (
-      <View style={styles.container(type)}>
-        <Text style={styles.button(type)}>{title}</Text>
+      <View style={styles.disableBg}>
+        <Text style={styles.disableText}>{title}</Text>
       </View>
     );
   }
@@ -34,4 +34,18 @@ const styles = StyleSheet.create({
     fontFamily: 'Mukta-SemiBold',
     fontSize: 18,
   }),
+  disableBg: {
+    backgroundColor: colors.disabled,
+    marginHorizontal: 16,
+    borderRadius: 5,
+    marginTop: 20,
+    marginBottom: 20,
+  },
+  disableText: {
+    color: colors.border,
+    textAlign: 'center',
+    padding: 10,
+    fontFamily: 'Mukta-SemiBold',
+    fontSize: 18,
+  },
 });

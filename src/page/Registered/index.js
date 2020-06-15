@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   Text,
   StyleSheet,
@@ -8,10 +8,12 @@ import {
 } from 'react-native';
 import {ILBackgroundLight} from '../../assets';
 import {Input, Button, Gap, Link, Loading} from '../../components';
-import {useForm} from '../../utils';
+import {useForm, storeData} from '../../utils';
 import {Firebase} from '../../config';
+import {showMessage} from 'react-native-flash-message';
 
 const Registered = ({navigation}) => {
+  const [loading, setLoading] = useState(false);
   const [form, setForm] = useForm({
     fullName: '',
     profession: '',
@@ -19,23 +21,32 @@ const Registered = ({navigation}) => {
     password: '',
   });
   const onContinue = () => {
+    setLoading(true);
     Firebase.auth()
       .createUserWithEmailAndPassword(form.email, form.password)
       .then(success => {
         setForm('reset');
+        setLoading(false);
         const data = {
           fullName: form.fullName,
           profession: form.profession,
           email: form.email,
-          password: form.password,
         };
         Firebase.database()
           .ref('users/' + success.user.uid + '/')
           .set(data);
+        storeData('user', data);
+        navigation.navigate('UploadPhoto', data);
         console.log('success', success);
       })
       .catch(error => {
+        showMessage({
+          message: error.message,
+          type: 'default',
+          backgroundColor: '#cc2d45',
+        });
         console.log('failed!', error);
+        setLoading(false);
       });
   };
   return (
@@ -81,7 +92,7 @@ const Registered = ({navigation}) => {
           onPress={() => navigation.navigate('Login')}
         />
       </ImageBackground>
-      <Loading />
+      {loading && <Loading />}
     </>
   );
 };
