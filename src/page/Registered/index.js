@@ -31,6 +31,7 @@ const Registered = ({navigation}) => {
           fullName: form.fullName,
           profession: form.profession,
           email: form.email,
+          uid: success.user.uid,
         };
         Firebase.database()
           .ref('users/' + success.user.uid + '/')
