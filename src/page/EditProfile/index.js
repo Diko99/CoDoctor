@@ -3,18 +3,20 @@ import {StyleSheet, View, ScrollView} from 'react-native';
 import {SecondHeader, AddPhoto, Input, Gap, Button} from '../../components';
 import {colors} from '../../utils';
 
-const EditProfile = ({navigation}) => {
+const EditProfile = ({navigation, route}) => {
+  const data = route.params;
+  console.log('edit profile', data);
   return (
     <View style={styles.container}>
       <SecondHeader title="Edit Profile" onPress={() => navigation.goBack()} />
       <ScrollView showsVerticalScrollIndicator={false}>
-        <AddPhoto type="edit-profile" />
+        <AddPhoto type="edit-profile" photo={data.photo} icon />
         <View style={styles.content}>
-          <Input title="Nama Lengkap" light />
+          <Input title={data.fullName} light />
           <Gap height={15} />
-          <Input title="Pekerjaan" light />
+          <Input title={data.profession} light />
           <Gap height={15} />
-          <Input title="Email" light />
+          <Input title={data.email} light />
           <Gap height={15} />
           <Input title="Password" light />
         </View>

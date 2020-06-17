@@ -1,17 +1,21 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {SecondHeader, AddPhoto, List} from '../../components';
-import {colors} from '../../utils';
-import {listMenuProfile} from '../../assets';
+import {colors, getData} from '../../utils';
+import {listMenuProfile, DummyUser1} from '../../assets';
 
-const Profile = ({navigation}) => {
+const Profile = ({navigation, route}) => {
+  const data = route.params;
+  console.log(data);
   return (
     <View style={styles.container}>
       <SecondHeader title="Profile" onPress={() => navigation.goBack()} />
       <View style={styles.content}>
         <AddPhoto
-          title="Andiko Mahendra"
-          desc="Frontend Developers"
+          title={profile.fullName}
+          desc="{profile.profession}"
+          photo="{profile.photo}"
+          disabled
           type="profile"
         />
       </View>
@@ -52,7 +56,7 @@ const styles = StyleSheet.create({
   list: {
     flex: 1,
     padding: 16,
-    marginTop: -60,
+    marginTop: -50,
     backgroundColor: colors.white,
   },
 });

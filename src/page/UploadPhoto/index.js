@@ -1,10 +1,11 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {StyleSheet, View, ImageBackground} from 'react-native';
 import {ILBackgroundLight, DummyUser1} from '../../assets';
 import {AddPhoto, Button, Link, Loading} from '../../components';
 import ImagePicker from 'react-native-image-picker';
 import {showMessage} from 'react-native-flash-message';
 import {Firebase} from '../../config';
+import {storeData} from '../../utils';
 
 const UploadPhoto = ({navigation, route}) => {
   const {fullName, profession, uid} = route.params;
@@ -12,8 +13,8 @@ const UploadPhoto = ({navigation, route}) => {
   const [hasPhoto, setHasPhoto] = useState(false);
   const [photoForDB, setPhotoForDB] = useState('');
   const [loading, setLoading] = useState(false);
+
   const getImage = () => {
-    setLoading(true);
     ImagePicker.launchImageLibrary({}, response => {
       console.log('getphoto :', response);
       if (response.didCancel || response.error) {
@@ -32,16 +33,17 @@ const UploadPhoto = ({navigation, route}) => {
       }
     });
   };
+
   const uploadAndContinue = () => {
-    setLoading(true);
     Firebase.database()
       .ref('users/' + uid + '/')
-      .update({photo: photoForDB})
-      .then(() => {
-        console.log('push foto to firebase success');
-        navigation.replace('MainScreen');
-        setLoading(false);
-      });
+      .update({photo: photoForDB});
+
+    const data = route.params;
+    data.photo = photoForDB;
+
+    storeData('user', data);
+    navigation.replace('MainScreen');
   };
 
   return (
@@ -67,7 +69,7 @@ const UploadPhoto = ({navigation, route}) => {
           />
         </View>
       </ImageBackground>
-  {loading && <Loading />}
+      {loading && <Loading />}
     </>
   );
 };

@@ -3,13 +3,16 @@ import {Text, StyleSheet, View, Image, TouchableOpacity} from 'react-native';
 import {IconAdd, IconRemove} from '../../../assets';
 import {colors} from '../../../utils';
 
-const AddPhoto = ({title, desc, type, onPress, photo, icon}) => {
+const AddPhoto = ({title, desc, type, onPress, photo, icon, disabled}) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.content(type)} onPress={onPress}>
+      <TouchableOpacity
+        disabled={disabled}
+        style={styles.content(type)}
+        onPress={onPress}>
         <Image source={photo} style={styles.avatar} />
         {icon && <IconRemove style={styles.icon} />}
-        {!icon && <IconAdd style={styles.icon} />}
+        {/* {!icon && <IconAdd style={styles.icon} />} */}
       </TouchableOpacity>
       {title && (
         <View style={styles.wrapperDesc(type)}>
@@ -66,10 +69,11 @@ const styles = StyleSheet.create({
     textTransform: 'capitalize',
   },
   profession: {
-    fontSize: 14,
+    fontSize: 16,
     fontFamily: 'Mukta-Regular',
     color: colors.secondary,
     textTransform: 'capitalize',
     textAlign: 'center',
+    marginBottom: 10,
   },
 });

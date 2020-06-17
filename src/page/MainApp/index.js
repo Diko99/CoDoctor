@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   StyleSheet,
   View,
@@ -6,19 +6,17 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
-import {Header, MainSearch, DocterCategory, List} from '../../components';
+import {Header, DocterCategory, List} from '../../components';
 import {colors} from '../../utils';
 import {dataCategoryDokter, Data, News} from '../../assets';
 
-const MainApp = ({navigation}) => {
+const MainApp = ({navigation, route}) => {
   return (
     <View style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.content}>
           <Header
-            title="Andiko Mahendra"
-            desc="Frontend Enthusiast"
-            onPress={() => navigation.navigate('Profile')}
+            onPress={() => navigation.navigate('Profile', route.params)}
             type="mainApp"
           />
           <View style={styles['wrapper-text']}>

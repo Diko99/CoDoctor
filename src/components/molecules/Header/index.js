@@ -1,9 +1,22 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Text, StyleSheet, View, Image, TouchableOpacity} from 'react-native';
 import {DummyUser1, IconIndicator, IconBackLight} from '../../../assets';
-import {colors} from '../../../utils';
+import {colors, getData} from '../../../utils';
 
 const Header = ({title, desc, onPress, type}) => {
+  const [profile, setProfile] = useState({
+    photo: DummyUser1,
+    fullName: '',
+    profession: '',
+  });
+  useEffect(() => {
+    getData('user').then(res => {
+      const data = res;
+      data.photo = {uri: data.photo};
+      setProfile(data);
+    });
+  }, []);
+
   const IconLeft = () => {
     if (type === 'mainApp') {
       return <Image source={IconIndicator} style={styles.iconindicator} />;
@@ -17,11 +30,11 @@ const Header = ({title, desc, onPress, type}) => {
     return (
       <View style={styles.containerMain}>
         <TouchableOpacity onPress={onPress}>
-          <Image source={DummyUser1} style={styles.avatarMain} />
+          <Image source={profile.photo} style={styles.avatarMain} />
         </TouchableOpacity>
         <View style={styles.wrapper}>
-          <Text style={styles.titleProfile}>{title}</Text>
-          <Text style={styles.profession}>{desc}</Text>
+          <Text style={styles.titleProfile}>{profile.fullName}</Text>
+          <Text style={styles.profession}>{profile.profession}</Text>
         </View>
       </View>
     );
@@ -75,11 +88,13 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontFamily: 'Mukta-SemiBold',
     color: colors.primary,
+    textTransform: 'capitalize',
   },
   profession: {
     marginTop: -3,
     fontSize: 14,
     fontFamily: 'Mukta-Light',
+    textTransform: 'capitalize',
     color: colors.border,
   },
   iconindicator: {
